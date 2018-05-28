@@ -17,7 +17,12 @@
             placeholder="Search..."
             :options="coins"
             label="name"
-          ></v-select>
+          >
+            <template slot="option" slot-scope="option">
+              <img :src="`https://chasing-coins.com/api/v1/std/logo/${option.symbol}`" class="select__logo">
+              <span class="select__name">{{ option.name }}</span>
+            </template>
+          </v-select>
           <i class="search link icon"></i>
         </div>
       </div>
