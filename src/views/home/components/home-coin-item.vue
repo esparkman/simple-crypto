@@ -1,6 +1,6 @@
 <template>
   <div class="ui segment coin desktop">
-    <div class="ui grid">
+    <router-link :to="`/currency/${coin.website_slug}`" class="ui grid">
       <div class="one wide column segment__bold">{{ coin.rank }}</div>
       <div class="two wide column segment__primary">
         <img :src="`https://chasing-coins.com/api/v1/std/logo/${coin.symbol}`" class="segment__crypto-logo">
@@ -13,12 +13,16 @@
       <div
         class="two wide column"
         :class="[isValuePositive(coinQuotes.percent_change_1h) ? 'segment__positive' : 'segment__negative']"
-      >{{ coinQuotes.percent_change_1h }} %</div>
+      >
+        {{ coinQuotes.percent_change_1h }} %
+      </div>
       <div
         class="two wide column"
         :class="[isValuePositive(coinQuotes.percent_change_24h) ? 'segment__positive' : 'segment__negative']"
-      >{{ coinQuotes.percent_change_24h }} %</div>
-    </div>
+      >
+      {{ coinQuotes.percent_change_24h }} %
+      </div>
+    </router-link>
   </div>
 </template>
 
